@@ -44,10 +44,15 @@ Para inicializar o Backend:
 criar um arquivo .env com os paramêtros de banco de dados e URL do MONGO.
 
 ```shell
-  MONGO_URL=
   // A URL deve ser modificada com a senha do usuário
   // Exemplo de Url : mongodb+srv://<USUÁRIO>:<SENHA>@api.l32ftzc.mongodb.net/?retryWrites=true&w=majority
+  MONGO_URL=
+
   JWT_SECRET=
+
+  // caso a porta seja modificada do valor padrão de 8080, deve-se mudar a URL no Front-end/src/services/api.ts
+  PORT=
+
   ADM_PASSWORD='sh@r3n3rgy'
 ```
 

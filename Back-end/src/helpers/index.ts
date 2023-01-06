@@ -16,7 +16,7 @@ export const createAdm = async () => {
 
     if (admUser.length === 0) {
       const NewUser = model<IUserRequest>("User", User);
-      const user: any = new NewUser({
+      const user = new NewUser({
         username: "desafiosharenergy",
         fullname: "Usuário Administrador",
         phone: "41999999999",

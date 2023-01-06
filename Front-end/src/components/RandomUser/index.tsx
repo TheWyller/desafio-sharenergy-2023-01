@@ -59,7 +59,6 @@ const RandomUser = () => {
       {page > 1 && (
         <Button
           onClick={() => {
-            console.log(page);
             setPage(page - 1);
           }}
         >

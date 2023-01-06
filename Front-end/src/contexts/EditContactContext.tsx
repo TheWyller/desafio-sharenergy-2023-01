@@ -27,7 +27,6 @@ export const EditContactProvider = ({ children }: Ichildren) => {
         toast.success("Contato editado com sucesso");
       })
       .catch((err) => {
-        console.log(err);
         toast.error("Contato NÃO foi editado!");
       });
   };

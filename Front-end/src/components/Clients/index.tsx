@@ -28,7 +28,6 @@ const Contacts = () => {
         toast.success("Contato deletado com sucesso");
       })
       .catch((err) => {
-        console.log(err);
         toast.error("Algo aconteceu de errado!");
       });
   };
