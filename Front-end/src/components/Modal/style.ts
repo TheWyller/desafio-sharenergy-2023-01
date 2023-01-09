@@ -5,8 +5,7 @@ export const DivStyled = styled.div`
   inset: 0;
   top: 0px;
   left: 0px;
-  background-color: rgb(0, 0, 0, 0.5);
-  backdrop-filter: blur(5px);
+  background-color: rgb(0, 0, 0, 0.9);
   width: 100vw;
   height: 100vh;
   padding-top: 20px;
