@@ -1,5 +1,5 @@
 import { FieldValues } from "react-hook-form";
-import { IContact } from "./contacts.interfaces";
+import { IClient } from "./clients.interfaces";
 
 export interface ILogin {
   authenticated: boolean;
@@ -17,19 +17,19 @@ export interface ISignUp {
   setSignUpData: React.Dispatch<React.SetStateAction<{}>>;
 }
 
-export interface IGetAllContacts {
+export interface IGetAllClients {
   getAll: () => void;
-  setAllContacts: React.Dispatch<React.SetStateAction<IContact[]>>;
-  allContacts: IContact[];
+  setAllClients: React.Dispatch<React.SetStateAction<IClient[]>>;
+  allClients: IClient[];
 }
-export interface ICreateContact {
-  setCreateContactData: React.Dispatch<React.SetStateAction<{}>>;
+export interface ICreateClient {
+  setCreateClientData: React.Dispatch<React.SetStateAction<{}>>;
 }
 
-export interface IEditContact {
-  idContactData: string;
-  setIdContactData: React.Dispatch<React.SetStateAction<string>>;
-  editContact: (id: string, data: FieldValues) => void;
+export interface IEditClient {
+  idClientData: string;
+  setIdClientData: React.Dispatch<React.SetStateAction<string>>;
+  editClient: (id: string, data: FieldValues) => void;
   isEdit: boolean;
   setIsEdit: React.Dispatch<React.SetStateAction<boolean>>;
 }

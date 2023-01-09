@@ -6,7 +6,7 @@ import { Ichildren } from "../interfaces/react.interfaces";
 
 import api from "../services/api";
 import { encryptData } from "../utils/crypt";
-import { GetAllContactsContext } from "./GetAllContactsContext";
+import { GetAllClientsContext } from "./GetAllClientsContext";
 
 export const LoginContext = createContext<ILogin>({} as ILogin);
 
@@ -16,7 +16,7 @@ export const LoginProvider = ({ children }: Ichildren) => {
   const [loginData, setLoginData] = useState({} as ILoginData);
   const [authenticated, setAuthenticated] = useState(false);
 
-  const { getAll } = useContext(GetAllContactsContext);
+  const { getAll } = useContext(GetAllClientsContext);
 
   useEffect(() => {
     if (Object.keys(loginData).length > 0) {

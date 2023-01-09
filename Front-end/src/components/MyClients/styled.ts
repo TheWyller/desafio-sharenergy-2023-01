@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const MyContatsStyled = styled.section`
+const MyClientsStyled = styled.section`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -9,4 +9,4 @@ const MyContatsStyled = styled.section`
   gap: 20px;
 `;
 
-export default MyContatsStyled;
+export default MyClientsStyled;

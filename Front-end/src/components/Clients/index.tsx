@@ -1,25 +1,24 @@
 import { useContext, useEffect } from "react";
 import { toast } from "react-toastify";
-import { EditContactContext } from "../../contexts/EditContactContext";
-import { GetAllContactsContext } from "../../contexts/GetAllContactsContext";
+import { EditClientContext } from "../../contexts/EditClientContext";
+import { GetAllClientsContext } from "../../contexts/GetAllClientsContext";
 import api from "../../services/api";
 import Button from "../Button";
 
 import { SectionStyled } from "./styled";
 
-const Contacts = () => {
-  const { allContacts, getAll } = useContext(GetAllContactsContext);
-  const { setIdContactData, isEdit, setIsEdit } =
-    useContext(EditContactContext);
+const Clients = () => {
+  const { allClients, getAll } = useContext(GetAllClientsContext);
+  const { setIdClientData, isEdit, setIsEdit } = useContext(EditClientContext);
 
   const token = localStorage.getItem("@Test_Tecnico:Token");
 
   useEffect(() => {
     getAll();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [allContacts, isEdit]);
+  }, [allClients, isEdit]);
 
-  const deleteContact = (id: string) => {
+  const deleteClient = (id: string) => {
     api
       .delete(`/clients/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
@@ -34,10 +33,10 @@ const Contacts = () => {
 
   return (
     <>
-      {allContacts.length === 0 ? (
-        <h3>Nenhum Contato</h3>
+      {allClients.length === 0 ? (
+        <h3>Nenhum Cliente</h3>
       ) : (
-        allContacts.map((elem, i) => (
+        allClients.map((elem, i) => (
           <SectionStyled key={i}>
             <h3>Cliente {i + 1}</h3>
             <section className="text">
@@ -63,7 +62,7 @@ const Contacts = () => {
             <div>
               <Button
                 onClick={() => {
-                  deleteContact(elem._id);
+                  deleteClient(elem._id);
                 }}
               >
                 Remove
@@ -71,7 +70,7 @@ const Contacts = () => {
               <Button
                 onClick={() => {
                   setIsEdit(true);
-                  setIdContactData(elem._id);
+                  setIdClientData(elem._id);
                 }}
               >
                 Editar
@@ -84,4 +83,4 @@ const Contacts = () => {
   );
 };
 
-export default Contacts;
+export default Clients;

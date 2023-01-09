@@ -10,6 +10,12 @@ export const RandomPageStyled = styled.main`
   h2 {
     font-size: 35px;
     text-align: center;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  padding-bottom: 60px;
+  .notFound {
+    margin-bottom: 70px;
   }
 `;
 

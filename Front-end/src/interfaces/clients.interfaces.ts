@@ -1,4 +1,4 @@
-export interface IContact {
+export interface IClient {
   _id: string;
   name: string;
   email: string;
@@ -9,15 +9,15 @@ export interface IContact {
   updated_at: Date;
 }
 
-export interface IEditContact {
+export interface IEditClient {
   name: string;
   email: string;
   phone: string;
   address: string;
 }
 
-export interface IContactList {
-  allContacts: IContact[];
+export interface IClientList {
+  allClients: IClient[];
 }
 
 export type EditProps = {

@@ -1,24 +1,24 @@
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
-import CreateContactForm from "../components/CreateContactForm";
+import CreateClientForm from "../components/CreateClientForm";
 import HeaderStyled from "../components/Header/styled";
 import MainStyled from "../components/Main/styled";
 
-const CreateContact = () => {
+const CreateClient = () => {
   const navigate = useNavigate();
   return (
     <>
       <HeaderStyled>
-        <h1>Meus Contatos</h1>
-        <Button onClick={() => navigate("/contacts", { replace: true })}>
+        <h1>Meus Clientes</h1>
+        <Button onClick={() => navigate("/clients", { replace: true })}>
           Voltar
         </Button>
       </HeaderStyled>
       <MainStyled>
-        <CreateContactForm />
+        <CreateClientForm />
       </MainStyled>
     </>
   );
 };
 
-export default CreateContact;
+export default CreateClient;

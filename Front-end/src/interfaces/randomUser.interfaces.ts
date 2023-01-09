@@ -14,8 +14,8 @@ export interface IRandomUser {
   picture: { thumbnail: string };
 }
 
-export interface IRandomUserList {
-  users: IRandomUser[];
+export interface IRandomUserList extends Array<IRandomUser> {
+  newArray: IRandomUser[];
 }
 
 export type EditProps = {

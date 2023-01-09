@@ -5,10 +5,10 @@ import { DivStyled, FormStyled } from "../Form/style";
 import { Input } from "../Input";
 import Button from "../Button";
 import { useContext } from "react";
-import { CreateContactContext } from "../../contexts/CreateContactContext";
+import { CreateClientContext } from "../../contexts/CreateClientContext";
 
-const CreateContactForm = () => {
-  const { setCreateContactData } = useContext(CreateContactContext);
+const CreateClientForm = () => {
+  const { setCreateClientData } = useContext(CreateClientContext);
   const {
     register,
     handleSubmit,
@@ -16,7 +16,7 @@ const CreateContactForm = () => {
   } = useForm({ resolver: yupResolver(schemaInfos) });
 
   const onSubmitFunction = (data: FieldValues) => {
-    setCreateContactData(data);
+    setCreateClientData(data);
   };
 
   return (
@@ -69,4 +69,4 @@ const CreateContactForm = () => {
   );
 };
 
-export default CreateContactForm;
+export default CreateClientForm;

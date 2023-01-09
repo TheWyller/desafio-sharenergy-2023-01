@@ -3,18 +3,18 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Button from "../components/Button";
 import Contacts from "../components/Clients";
-import EditContactForm from "../components/EditContactForm";
+import EditContactForm from "../components/EditClientForm";
 import HeaderStyled from "../components/Header/styled";
 import { DivStyled } from "../components/Modal/style";
 
-import MyContatsStyled from "../components/MyContats/styled";
-import { EditContactContext } from "../contexts/EditContactContext";
-import { GetAllContactsContext } from "../contexts/GetAllContactsContext";
+import MyContatsStyled from "../components/MyClients/styled";
+import { EditClientContext } from "../contexts/EditClientContext";
+import { GetAllClientsContext } from "../contexts/GetAllClientsContext";
 
-const MyContacts = () => {
+const MyClients = () => {
   const navigate = useNavigate();
-  const { setAllContacts } = useContext(GetAllContactsContext);
-  const { isEdit } = useContext(EditContactContext);
+  const { setAllClients } = useContext(GetAllClientsContext);
+  const { isEdit } = useContext(EditClientContext);
 
   const token = localStorage.getItem("@Test_Tecnico:Token");
 
@@ -27,18 +27,18 @@ const MyContacts = () => {
   return (
     <>
       <HeaderStyled>
-        <h1>Meus Contatos</h1>
+        <h1>Meus Clientes</h1>
         <div>
           <Button onClick={() => navigate("/", { replace: true })}>
             Voltar
           </Button>
-          <Button onClick={() => navigate("/newcontact", { replace: true })}>
+          <Button onClick={() => navigate("/newclient", { replace: true })}>
             Criar novo cliente
           </Button>
           <Button
             onClick={() => {
               localStorage.removeItem("@Test_Tecnico:Token");
-              setAllContacts([]);
+              setAllClients([]);
               toast.success("Você saiu com sucesso!");
               navigate("/", { replace: true });
             }}
@@ -63,4 +63,4 @@ const MyContacts = () => {
   );
 };
 
-export default MyContacts;
+export default MyClients;

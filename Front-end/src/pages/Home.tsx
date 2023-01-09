@@ -4,11 +4,11 @@ import { toast } from "react-toastify";
 import Button from "../components/Button";
 import HeaderStyled from "../components/Header/styled";
 import RandomUser from "../components/RandomUser";
-import { GetAllContactsContext } from "../contexts/GetAllContactsContext";
+import { GetAllClientsContext } from "../contexts/GetAllClientsContext";
 
 const Home = () => {
   const navigate = useNavigate();
-  const { setAllContacts } = useContext(GetAllContactsContext);
+  const { setAllClients } = useContext(GetAllClientsContext);
   const token = localStorage.getItem("@Test_Tecnico:Token");
 
   useEffect(() => {
@@ -23,8 +23,8 @@ const Home = () => {
         <div className="image"></div>
         <h1>Teste Sharenergy</h1>
         <div>
-          <Button onClick={() => navigate("/contacts", { replace: true })}>
-            Meus Contatos
+          <Button onClick={() => navigate("/clients", { replace: true })}>
+            Meus Clientes
           </Button>
           <Button onClick={() => navigate("/httpcat", { replace: true })}>
             HTTP Cat
@@ -35,7 +35,7 @@ const Home = () => {
           <Button
             onClick={() => {
               localStorage.removeItem("@Test_Tecnico:Token");
-              setAllContacts([]);
+              setAllClients([]);
               toast.success("Você saiu com sucesso!");
               navigate("/", { replace: true });
             }}

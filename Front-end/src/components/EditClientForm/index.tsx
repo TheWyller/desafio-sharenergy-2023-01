@@ -6,11 +6,10 @@ import { Input } from "../Input";
 import Button from "../Button";
 import { checkInfos } from "./checkInfos";
 import { useContext } from "react";
-import { EditContactContext } from "../../contexts/EditContactContext";
+import { EditClientContext } from "../../contexts/EditClientContext";
 
-const EditContactForm = () => {
-  const { idContactData, editContact, setIsEdit } =
-    useContext(EditContactContext);
+const EditClientForm = () => {
+  const { idClientData, editClient, setIsEdit } = useContext(EditClientContext);
 
   const {
     register,
@@ -20,7 +19,7 @@ const EditContactForm = () => {
 
   const onSubmitFunction = (data: FieldValues) => {
     if (Object.keys(checkInfos(data)).length !== 0) {
-      editContact(idContactData, checkInfos(data));
+      editClient(idClientData, checkInfos(data));
       setIsEdit(false);
     } else {
       setIsEdit(false);
@@ -76,4 +75,4 @@ const EditContactForm = () => {
   );
 };
 
-export default EditContactForm;
+export default EditClientForm;
