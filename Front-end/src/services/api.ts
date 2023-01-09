@@ -1,7 +1,10 @@
 import axios from "axios";
+import env from "react-dotenv";
+
+const PORT = env.PORT_BACK || 8080;
 
 const api = axios.create({
-  baseURL: "http://localhost:8080",
+  baseURL: `http://localhost:${PORT}`,
 });
 
 export const apiRandom = axios.create({

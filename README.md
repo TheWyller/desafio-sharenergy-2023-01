@@ -2,24 +2,9 @@
 
 Projeto fullstack realizado em Node.js com o framework express,banco de dados não relacional MongoDB e React com Typescript. Esse teste técnico tem o intuito de criar usuários que podem criar diversos clientes vinculados a eles, ou seja, uma agenda eletrônica, no web site possuem outras páginas que tem o intuito de mostrar como se acessar uma API.
 
-## Etapas em desenvolvimento
+## Link do Vídeo do YouTube
 
-Itens em desenvolvimento ou esperando para serem desenvolvidos
-
-### Front-end
-
-    - Poder adicionar mais de um email e telefone
-    - Realizar Testes
-    - Poder importar lista de contatos em PDF
-
-### Back-end
-
-    - Poder adicionar mais de um email e telefone
-    - Realizar Testes
-
-### Ambos
-
-    - Adicionar em um conteiner(Docker)
+https://youtu.be/2YMatz-XXtc
 
 ## Como Rodar a Aplicação
 
@@ -44,14 +29,16 @@ Para inicializar o Backend:
 criar um arquivo .env com os paramêtros de banco de dados e URL do MONGO.
 
 ```shell
-  // A URL deve ser modificada com a senha do usuário
+  // A URL deve ser modificada com a senha e usuário respectivamente
   // Exemplo de Url : mongodb+srv://<USUÁRIO>:<SENHA>@api.l32ftzc.mongodb.net/?retryWrites=true&w=majority
+
   MONGO_URL=
 
   JWT_SECRET=
 
-  // caso a porta seja modificada do valor padrão de 8080, deve-se mudar a URL no Front-end/src/services/api.ts
-  PORT=
+  // caso a porta seja modificada e não seja p valor padrão de 8080, deve-se mudar a URL no parametro proxy no arquivo packege.json
+
+  PORT=8080
 
   ADM_PASSWORD='sh@r3n3rgy'
 ```
@@ -80,6 +67,17 @@ Com o servidor do backend funcionado, deve-se abrir um novo terminal na raiz do 
 ```
 
 Para inicializar o Frontend:
+
+criar um arquivo .env com os paramêtros de criptografia e porta.
+
+```shell
+
+  SECRET_KEY=
+
+  // caso a porta seja modificada e não seja p valor padrão de 8080, deve-se mudar a URL no parametro proxy no arquivo packege.json
+  PORT_BACK=8080
+
+```
 
 ```shell
   yarn start
