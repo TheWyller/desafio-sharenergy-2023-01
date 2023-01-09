@@ -36,8 +36,7 @@ criar um arquivo .env com os paramêtros de banco de dados e URL do MONGO.
 
   JWT_SECRET=
 
-  // caso a porta seja modificada e não seja p valor padrão de 8080, deve-se mudar a URL no parametro proxy no arquivo packege.json
-
+  // caso a porta seja modificada e não seja para valor padrão de 8080, deve-se mudar a URL no parametro proxy no arquivo packege.json
   PORT=8080
 
   ADM_PASSWORD='sh@r3n3rgy'
@@ -74,7 +73,7 @@ criar um arquivo .env com os paramêtros de criptografia e porta.
 
   SECRET_KEY=
 
-  // caso a porta seja modificada e não seja p valor padrão de 8080, deve-se mudar a URL no parametro proxy no arquivo packege.json
+  // caso a porta seja modificada e não seja para valor padrão de 8080, deve-se mudar a URL no parametro proxy no arquivo packege.json
   PORT_BACK=8080
 
 ```
