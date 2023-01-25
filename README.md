@@ -1,92 +1,610 @@
-# Desafio para o processo seletivo SHARENERGY 2023/01
+# Teste-Técnico-Sharenergy
 
-Repositório destinado aos interessados em participar do processo seletivo da SHARENERGY 2023/01. As vagas são voltadas para desenvolvimento de aplicações Web e Mobile.
+Projeto fullstack realizado em Node.js com o framework express,banco de dados não relacional MongoDB e React com Typescript. Esse teste técnico tem o intuito de criar usuários que podem criar diversos clientes vinculados a eles, ou seja, uma agenda eletrônica, no web site possuem outras páginas que tem o intuito de mostrar como se acessar uma API.
 
-## Sobre a SHARENERGY
+## Link do Vídeo do YouTube
 
-No ramo da produção de energia fotovoltaica, há a modalidade de produção compartilhada. Nessa modalidade, diferentes pessoas investem na construção de uma mesma usina fotovoltaica e dividem o retorno finaceiro referente à energia gerada pela usina.
+https://youtu.be/2YMatz-XXtc
 
-Acreditamos que as energias renováveis terão um lugar dominante em nossa economia pelo resto de nossas vidas. Trabalhamos no sentido de ampliar o impacto positivo que as energias renováveis podem ter no meio ambiente e nas nossas vidas. O sucesso da SHARENERGY é resultado de nossa equipe apaixonada, juntamente com nosso compromisso de oferecer a melhor solução.
+## Como Rodar a Aplicação
 
-Sabemos que negócios enfrentam desafios únicos e por isso oferecemos soluções turnkey, customizadas, economicamente viáveis e seguras.
+**Vale pontuar que o NODE deve estar instalado na máquina**
 
-A Startup figura entre as top 10 EnergyTechs do ranking 100 Open Startups desde 2018. Prova de que a inovação está enraizada em nossa cultura. Somos uma startup em estágio de crescimento e você trabalhará diretamente com os fundadores, ajudando a definir a visão, o produto e a experiência do usuário.
+_O gerenciador de arquivos usado foi o yarn mais pode ser usado o npm_
 
-<p align="left">
-  <a href="https://www.linkedin.com/company/sharenergy-brasil/">
-    <img src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?&style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn Button">
-  </a>
-  <a href="https://sharenergy.com.br/">
-    <img src="https://img.shields.io/badge/-Website-red" alt="Sharenergy Website Button">
-  </a>
-</p>
+### Início
 
-## Sobre a vaga
+Realizar o clone do repositório. Na pasta raiz executar os seguintes comandos:
 
-Já pensou em potencializar o setor que mais cresce na galáxia e trabalhar com uma solução que utiliza tecnologia web de ponta, altamente distribuída com foco em performance e disponibilidade? 👀
+Para inicializar o Backend:
 
-Os desenvolvedores da Sharenergy são responsáveis por criar e manter aplicações para clientes internos e externos, prover soluções escaláveis, resilientes e altamente disponíveis que sustentem picos de acesso além de atuar como referência técnica e tutores de outros desenvolvedores.
+```shell
+  cd Backend
+```
 
-Procuramos por pessoas dinâmicas e que queiram estar aprendendo sempre. Nossa equipe é jovem, motivada e estamos sempre em busca de soluções criativas para alcançar os resultados que nossos clientes esperam. Se você tem esse perfil, é autoconfiante, autodidata e tem facilidade para lidar com desafios diários, essa vaga é para você!
+```shell
+  yarn
+```
 
-# O Desafio
+criar um arquivo .env com os paramêtros de banco de dados e URL do MONGO.
 
-Construir uma aplicação web (frontend e backend) capaz de realizar a comunicação com APIs distintas, além de um CRUD.
+```shell
+  // A URL deve ser modificada com a senha e usuário respectivamente
+  // Exemplo de Url : mongodb+srv://<USUÁRIO>:<SENHA>@api.l32ftzc.mongodb.net/?retryWrites=true&w=majority
 
-## Aplicação
+  MONGO_URL=
 
-- A página inicial da aplicação deve ser uma `Login Page`;
-- O usuário deve ser capaz de se autenticar utilizando o username `desafiosharenergy` e password `sh@r3n3rgy`, também, deve existir a possibilidade do usuário utilizar o `remember me` para realizar logins automáticos, sem a necessidade de digitar username e password após o primeiro acesso;
-- Após o Login, a página principal deve conter uma listagem de usuários gerada a partir da api [Random User Generator](https://randomuser.me/), a lista deve conter a foto do usuário, nome completo, email, username e idade. Além disso, os requests devem ser páginados, porém, é de critério do participante do desafio a quantidade de resultados a serem exibidos por página e variações para o mesmo. Também, deve haver uma search para buscar usuários por nome, email ou username;
-- Em uma segunda página, o usuário deve ser capaz de selecionar um status code http qualquer, e, após a seleção, deve ser retornada uma imagem da api [HTTP Cat](https://http.cat/) relacionada ao status escolhido, caso não exista tal imagem, deve ser retornada uma imagem de not found à critério de escolha do participante do desafio;
-- Em uma terceira página, deve haver um botão de refresh que, ao ser clicado, deve retornar uma imagem aleatória da api [Random Dog](https://random.dog/);
-- Em uma quarta página, deve haver uma lista de clientes, através da qual o usuário deve ser capaz de cadastrar novos clientes, visualizar informações de um cliente específico, atualizar um cliente e deletar clientes. O cadastro deve possuir nome, email, telefone, endereço e cpf.
+  JWT_SECRET=
 
-### Requisitos da aplicação e de código
+  // caso a porta seja modificada e não seja para valor padrão de 8080, deve-se mudar a URL no parametro proxy no arquivo Front-end/packege.json
+  PORT=8080
 
-- Interface amigável, bonita e limpa
-- Responsividade
-- Clean Code
+  ADM_PASSWORD='sh@r3n3rgy'
+```
 
-### Ferramentas e Stack a ser utilizado
+Abrir o servidor
 
-- ReactJS para o frontend
-- NodeJS (com ou sem frameworks) ou Golang para o backend
-- MongoDB
-- TypeScript
-- HTML e CSS
+```shell
+  yarn dev
+```
 
-### Aprimoramentos adicionais da aplicação (opcional)
+O usuário ADM padrão é:
 
-A aplicação criada para o desafio pode ser aprimorada com recursos pensados por você. A seguir, foram listadas algumas sugestões do que poderia ser feito:
+```shell
+  username = desafiosharenergy
+  senha = ADM_PASSWORD ou 123456 quando não aplicado no arquivo .env
+```
 
-- Testes
-- Documentação
+Com o servidor do backend funcionado, deve-se abrir um novo terminal na raiz do projeto e executar os seguintes comandos, para inicializar o frontend:
 
-### Mas, afinal, quais ferramentas a Sharenergy utiliza?
+```shell
+  cd Frontend
+```
 
-* [Javascript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript) e [Typescript](https://www.typescriptlang.org/)
-* Front-end: [ReactJS](https://reactjs.org/) e [React Native](https://reactnative.dev/)
-* Back-end: [Node.js](https://nodejs.org/en/), [NestJS](https://nestjs.com/) e [Go](https://golang.org/)
-* Banco de dados: [MongoDB](https://www.mongodb.com/) do lado do servidor e [Minimongo](https://guide.meteor.com/collections.html) do lado do cliente (cache)
-* Gerenciamento de Containers: [Docker](https://www.docker.com/)
-* Gerenciamento de Repositórios: [NX](https://nx.dev/)
-* UI: [Tailwind CSS](https://tailwindcss.com/) e [Material-UI V4](https://v4.mui.com/)
-* Sistema Operacional (principal): [Linux](https://www.linux.org/), também sendo possível utilizar o [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/) (WSL)
+```shell
+  yarn
+```
 
-## O que devo entregar?
+Para inicializar o Frontend:
 
-Esperamos de você duas entregas: o código no GitHub e um vídeo explicativo no YouTube.
+criar um arquivo .env com os paramêtros de criptografia e porta.
 
-### Instruções
+```shell
 
-- Faça um fork desse repositório.
-- Em seguida, crie uma branch, cujo nome é o seu nome completo, no seguinte formato: meu-nome-completo.
-- Resolva o desafio realizando versionamento local e remoto. Fique à vontade em criar outras branches durante o desenvolvimento do código.
-- Inclua no README.md uma breve instrução de instalação e de execução da aplicação criada.
-- Faça um vídeo que explique o que você fez no desafio, com duração aproximada de 5 minutos. A facecam é opcional, mas bem-vinda. O vídeo deve ser postado no YouTube (pode deixar como não listado) e seu link deve ser colocado no README.md.
-- Ao finalizar o desafio, faça um pull request de sua branch para esse repositório.
+  SECRET_KEY=
 
-### Prazo limite de entrega
+  // caso a porta seja modificada e não seja para valor padrão de 8080, deve-se mudar a URL no parametro proxy no arquivo Front-end/packege.json
+  PORT_BACK=8080
 
-O pull request com sua solução do desafio deve ser feito até a data especificada no corpo do email que você recebeu com a descrição do desafio.
+```
+
+```shell
+  yarn start
+```
+
+## TESTES
+
+### Testes Backend
+
+**EM DESENVOLVIMENTO**
+
+### Testes Frontend
+
+**EM DESENVOLVIMENTO**
+
+## Endpoints - API
+
+## 1. **Users**
+
+O objeto User é definido como:
+
+| Campo     | Tipo    | Descrição                                    |
+| --------- | ------- | -------------------------------------------- |
+| \_id      | string  | Identificador único do usuário               |
+| username  | string  | O username do usuário.                       |
+| fullname  | string  | O nome completo do usuário.                  |
+| phone     | boolean | O telefone do usuário.                       |
+| email     | objeto  | O e-mail do usuário.                         |
+| password  | string  | A senha de acesso do usuário                 |
+| createdOn | Date    | Indica data de criação do usuário            |
+| updatedOn | Date    | Indica data de última atualização do usuário |
+| clients   | Array   | Todos os contatos vinculados a esse usuário  |
+
+### Endpoints
+
+| Método | Rota       | Descrição                                 |
+| ------ | ---------- | ----------------------------------------- |
+| POST   | /users     | Criação de um usuário.                    |
+| GET    | /users     | Lista todos os usuários - apenas o ADM    |
+| GET    | /users/:id | Lista o próprio usuário                   |
+| DELETE | /users/:id | Deleta o usuário                          |
+| PATCH  | /users/:id | Atualiza campos do usuário passado por ID |
+
+---
+
+### 1.1. **Criação de Usuário**
+
+### `/users`
+
+### Exemplo de Request:
+
+```
+POST /users
+Authorization: Token
+```
+
+### Corpo da Requisição:
+
+```json
+{
+  "username": "Wyller",
+  "fullname": "Wyller Fernandes",
+  "phone": "41999999999",
+  "email": "wyller@wyller.com",
+  "password": "123456"
+}
+```
+
+### Exemplo de Response:
+
+```
+201 Created
+```
+
+```json
+{
+  "username": "Wyller",
+  "fullname": "Wyller Fernandes",
+  "email": "wyller@wyller.com",
+  "phone": "41999999999",
+  "isAdm": false,
+  "createdOn": "2023-01-06T11:54:43.783Z",
+  "updatedOn": "2023-01-06T11:54:43.783Z",
+  "clients": [],
+  "_id": "63b80c03c811ec448228f6f5"
+}
+```
+
+### Possíveis Erros:
+
+| Código do Erro | Descrição                 |
+| -------------- | ------------------------- |
+| 400 Conflict   | Email already registered. |
+
+---
+
+### 1.2. **Listando Usuários**
+
+[ Voltar aos Endpoints ](#5-endpoints)
+
+### `/users`
+
+### Exemplo de Request:
+
+```
+GET /users
+Authorization: Token e ser Administrador
+```
+
+### Corpo da Requisição:
+
+```
+Vazio
+```
+
+### Exemplo de Response:
+
+```
+200 OK
+```
+
+```json
+[
+  {
+    "_id": "63b72c45eb4462cc5de74062",
+    "username": "desafiosharenergy",
+    "fullname": "Usuário Administrador",
+    "email": "root@root.com",
+    "phone": "41999999999",
+    "isAdm": true,
+    "createdOn": "2023-01-05T20:00:05.186Z",
+    "updatedOn": "2023-01-05T20:00:05.186Z",
+    "clients": []
+  },
+  {
+    "_id": "63b80c03c811ec448228f6f5",
+    "username": "Wyller",
+    "fullname": "Wyller Fernandes",
+    "email": "wyller@wyller.com",
+    "phone": "41999999999",
+    "isAdm": false,
+    "createdOn": "2023-01-06T11:54:43.783Z",
+    "updatedOn": "2023-01-06T11:54:43.783Z",
+    "clients": []
+  }
+]
+```
+
+### Possíveis Erros:
+
+```JSON
+{
+	"message": "Invalid token"
+}
+```
+
+ou
+
+```JSON
+{
+	"message": "You're not the ADM"
+}
+```
+
+Pode-se listar através do ID do Usuário
+GET /users/9cda28c9-e540-4b2c-bf0c-c90006d37893
+
+---
+
+### 1.3. **Atualizar um Usuário por ID**
+
+### `/users/:id`
+
+### Exemplo de Request:
+
+```
+PATCH /users/9cda28c9-e540-4b2c-bf0c-c90006d37893
+Authorization: Token e usuário dono
+```
+
+### Parâmetros da Requisição:
+
+| Parâmetro | Tipo   | Descrição                             |
+| --------- | ------ | ------------------------------------- |
+| id        | string | Identificador único do usuário (User) |
+
+### Corpo da Requisição:
+
+```json
+{
+  "username": "Wyllerr",
+  "fullname": "Wyller Fernandess",
+  "email": "wyller2@wyller.com",
+  "phone": "419999999992"
+}
+```
+
+### Exemplo de Response:
+
+```
+200 OK
+```
+
+```json
+{
+  "message": "User updated",
+  "userdata": {
+    "_id": "63b72c54eb4462cc5de74067",
+    "username": "Wyllerr",
+    "fullname": "Wyller Fernandess",
+    "email": "wyller2@wyller.com",
+    "phone": "41999999992",
+    "isAdm": false,
+    "createdOn": "2023-01-05T20:00:20.519Z",
+    "updatedOn": "2023-01-05T20:01:26.902Z",
+    "clients": []
+  }
+}
+```
+
+### Possíveis Erros:
+
+| Código do Erro | Descrição       |
+| -------------- | --------------- |
+| 400 Not Found  | User not found. |
+
+---
+
+### 1.4. **Deletar um Usuário por ID**
+
+[ Voltar aos Endpoints ](#5-endpoints)
+
+### `/users/:id`
+
+### Exemplo de Request:
+
+```
+DELETE /users/63b80c03c811ec448228f6f5
+Authorization: Token e ser o dono do usuário
+```
+
+### Parâmetros da Requisição:
+
+| Parâmetro | Tipo   | Descrição                             |
+| --------- | ------ | ------------------------------------- |
+| id        | string | Identificador único do usuário (User) |
+
+### Corpo da Requisição:
+
+```
+vazio
+```
+
+### Exemplo de Response:
+
+```
+200 OK
+```
+
+```json
+{
+  "message": "Usuário deletado com sucesso!"
+}
+```
+
+### Possíveis Erros:
+
+| Código do Erro  | Descrição           |
+| --------------- | ------------------- |
+| 409 Conflict    | User not found.     |
+| 400 Bad Request | Usuário já deletado |
+
+---
+
+## 2. **Login**
+
+### 2.1. **Login do Usuário**
+
+### `/login`
+
+### Exemplo de Request:
+
+```
+POST /login
+Authorization: None
+```
+
+### Corpo da Requisição:
+
+```json
+{
+  "username": "Wyller",
+  "password": "123456"
+}
+```
+
+### Exemplo de Response:
+
+```
+200 Ok
+```
+
+```json
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYjg1MjQ2YjQyNThmMjRhYTY1YWRjYyIsImlzQWRtIjp0cnVlLCJpYXQiOjE2NzMwMjQwNzQsImV4cCI6MTY3MzExMDQ3NH0.rJHb_bD3z9OSFfjIhxzuy6-0EwIj9hUjevT7lRTgExA"
+}
+```
+
+### Possíveis Erros:
+
+| Código do Erro | Descrição           |
+| -------------- | ------------------- |
+| 403 Forbidden  | Invalid Credentials |
+
+---
+
+### 1.1. **Criação de um Cliente**
+
+### `/clients`
+
+### Exemplo de Request:
+
+```
+POST /clients
+Authorization: Token
+```
+
+### Corpo da Requisição:
+
+```json
+{
+  "name": "Jose",
+  "address": "Rua josé da silva, 5",
+  "phone": "41999999999",
+  "email": "Jose@jose.com",
+  "cpf": "014025038-34"
+}
+```
+
+### Exemplo de Response:
+
+```
+201 Created
+```
+
+```json
+{
+  "name": "Jose",
+  "email": "Jose@jose.com",
+  "phone": "41999999999",
+  "address": "Rua josé da silva, 5",
+  "cpf": "014025038-34",
+  "createdOn": "Fri Jan 06 2023 08:58:27 GMT-0300 (Horário Padrão de Brasília)",
+  "updatedOn": "Fri Jan 06 2023 08:58:27 GMT-0300 (Horário Padrão de Brasília)",
+  "userId": "63b72c45eb4462cc5de74062",
+  "_id": "63b80ce3c811ec4482291a6c",
+  "__v": 0
+}
+```
+
+### 1.2. **Listando Clientes do Usuário**
+
+### `/clients`
+
+### Exemplo de Request:
+
+```
+GET /clients
+Authorization: Token
+```
+
+### Corpo da Requisição:
+
+```
+Vazio
+```
+
+### Exemplo de Response:
+
+```
+200 OK
+```
+
+```json
+[
+  {
+    "_id": "63b80ce3c811ec4482291a6c",
+    "name": "Jose",
+    "email": "Jose@jose.com",
+    "phone": "41999999999",
+    "address": "Rua josé da silva, 5",
+    "cpf": "014025038-34",
+    "createdOn": "Fri Jan 06 2023 08:58:27 GMT-0300 (Horário Padrão de Brasília)",
+    "updatedOn": "Fri Jan 06 2023 08:58:27 GMT-0300 (Horário Padrão de Brasília)",
+    "userId": "63b72c45eb4462cc5de74062",
+    "__v": 0
+  },
+  {
+    "_id": "63b80ce6c811ec4482291b02",
+    "name": "Maria",
+    "email": "Maria@Maria.com",
+    "phone": "41999999999",
+    "address": "Rua josé da silva, 5",
+    "cpf": "014025038-24",
+    "createdOn": "Fri Jan 06 2023 08:58:30 GMT-0300 (Horário Padrão de Brasília)",
+    "updatedOn": "Fri Jan 06 2023 08:58:30 GMT-0300 (Horário Padrão de Brasília)",
+    "userId": "63b72c45eb4462cc5de74062",
+    "__v": 0
+  },
+  {
+    "_id": "63b80ceac811ec4482291bc0",
+    "name": "Bruxa",
+    "email": "Bruxa@Bruxa.com",
+    "phone": "41999999999",
+    "address": "Rua casa da bruxa",
+    "cpf": "014025038-14",
+    "createdOn": "Fri Jan 06 2023 08:58:34 GMT-0300 (Horário Padrão de Brasília)",
+    "updatedOn": "Fri Jan 06 2023 08:58:34 GMT-0300 (Horário Padrão de Brasília)",
+    "userId": "63b72c45eb4462cc5de74062",
+    "__v": 0
+  }
+]
+```
+
+### Possíveis Erros:
+
+```JSON
+{
+	"message": "Invalid token"
+}
+```
+
+Pode-se listar através do ID do Cliente
+GET /clients/63b80ceac811ec4482291bc0
+
+---
+
+### 1.3. **Atualizar um Clientes por ID**
+
+### `/clients/:id`
+
+### Exemplo de Request:
+
+```
+PATCH /clients/63b80ce3c811ec4482291a6c
+Authorization: Token e usuário dono do contato
+```
+
+### Parâmetros da Requisição:
+
+| Parâmetro | Tipo   | Descrição                                |
+| --------- | ------ | ---------------------------------------- |
+| id        | string | Identificador único do contato (Contact) |
+
+### Corpo da Requisição:
+
+```json
+{
+  "name": "Jose na Bruxa",
+  "phone": "12312312",
+  "email": "Jose@Bruxa.com",
+  "address": "Casa da bruxa"
+}
+```
+
+### Exemplo de Response:
+
+```
+200 OK
+```
+
+```json
+{
+  "message": "Client updated",
+  "userdata": {
+    "_id": "63b80ce3c811ec4482291a6c",
+    "name": "Jose na Bruxa",
+    "email": "Jose@Bruxa.com",
+    "phone": "12312312",
+    "address": "Casa da bruxa",
+    "cpf": "014025038-34",
+    "createdOn": "Fri Jan 06 2023 08:58:27 GMT-0300 (Horário Padrão de Brasília)",
+    "updatedOn": "Fri Jan 06 2023 08:59:23 GMT-0300 (Horário Padrão de Brasília)",
+    "userId": "63b72c45eb4462cc5de74062",
+    "__v": 0
+  }
+}
+```
+
+### Possíveis Erros:
+
+| Código do Erro | Descrição       |
+| -------------- | --------------- |
+| 400 Not Found  | User not found. |
+
+---
+
+### 1.4. **Deletar um Cliente por ID**
+
+### `/clients/:id`
+
+### Exemplo de Request:
+
+```
+DELETE /clients/63b80ce3c811ec4482291a6c
+Authorization: Token e ser o dono do contato
+```
+
+### Parâmetros da Requisição:
+
+| Parâmetro | Tipo   | Descrição                                |
+| --------- | ------ | ---------------------------------------- |
+| id        | string | Identificador único do contato (Contact) |
+
+### Corpo da Requisição:
+
+```
+vazio
+```
+
+### Exemplo de Response:
+
+```
+200 OK
+```
+
+### Possíveis Erros:
+
+| Código do Erro | Descrição       |
+| -------------- | --------------- |
+| 400 Conflict   | User not found. |
